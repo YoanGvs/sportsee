@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { getUserInfo, getUserActivity } from "../services/api";
-import { normalizeUserInfo, normalizeActivity } from "../services/normalize";
-
-// Types des données propres, déduits des fonctions de normalisation
-type UserInfo = ReturnType<typeof normalizeUserInfo>;
-type Session = ReturnType<typeof normalizeActivity>[number];
+import {
+  normalizeUserInfo,
+  normalizeActivity,
+  type UserInfo,
+  type Session,
+} from "../services/normalize";
 
 // Charge le profil et les séances de l'utilisateur connecté pour une page
 export function useUserData(startWeek: string, endWeek: string) {

@@ -1,9 +1,11 @@
 import { Navigate, Outlet } from "react-router";
 import { useAuth } from "../context/AuthContext";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 // Entoure les pages privées : sans token, on renvoie vers la connexion
 export default function ProtectedLayout() {
-  const { token, logout } = useAuth();
+  const { token } = useAuth();
 
   // replace évite de garder la page interdite dans l'historique
   if (!token) {
@@ -11,15 +13,12 @@ export default function ProtectedLayout() {
   }
 
   return (
-    <>
-      {/* En-tête provisoire, à refaire avec la maquette Figma */}
-      <header>
-        {/* Vider le token suffit : ce composant se relance et redirige */}
-        <button type="button" onClick={logout}>
-          Déconnexion
-        </button>
-      </header>
-      <Outlet />
-    </>
+    <div className="flex min-h-screen flex-col bg-surface">
+      <div className="mx-auto w-full max-w-[1140px] flex-1 px-4">
+        <Header />
+        <Outlet />
+      </div>
+      <Footer />
+    </div>
   );
 }

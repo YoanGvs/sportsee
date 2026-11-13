@@ -3,13 +3,17 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Couleurs de la maquette Figma */
+  --color-brand: #0b23f4;
+  --color-brand-light: #b6bdfc;
+  --color-accent: #f4320b;
+  --color-accent-light: #fcc1b6;
+  --color-surface: #f2f3ff;
+  --color-muted: #707070;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  @apply bg-surface text-[#111111];
 }

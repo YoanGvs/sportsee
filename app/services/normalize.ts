@@ -58,3 +58,7 @@ export function normalizeActivity(raw: RawSession[]) {
     calories: session.caloriesBurned,
   }));
 }
+
+// Types des données propres, utilisés par le hook et les composants
+export type UserInfo = ReturnType<typeof normalizeUserInfo>;
+export type Session = ReturnType<typeof normalizeActivity>[number];
