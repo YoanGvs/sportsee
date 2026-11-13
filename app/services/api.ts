@@ -5,7 +5,7 @@ import userActivityMock from "../mocks/userActivity.json";
 const API_URL = "http://localhost:8000/api";
 
 // true = données de démo (mocks), false = vrai backend
-const USE_MOCK = true;
+const USE_MOCK = false;
 
 // Envoie les identifiants au backend et renvoie { token, userId }
 export async function login(username: string, password: string) {

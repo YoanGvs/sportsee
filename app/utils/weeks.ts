@@ -19,3 +19,8 @@ export function addDays(date: Date, days: number) {
 export function shortDate(date: Date) {
   return date.toLocaleDateString("fr-FR", { day: "numeric", month: "short" });
 }
+
+// Date du jour au format attendu par le backend, ex. "2026-11-13"
+export function today() {
+  return new Date().toISOString().slice(0, 10);
+}

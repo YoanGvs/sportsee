@@ -1,5 +1,9 @@
 import { useUserData } from "../hooks/useUserData";
+import { today } from "../utils/weeks";
 import { StatCard } from "../components/StatCard";
+
+// Date d'inscription des comptes de test : on charge tout depuis ce jour
+const FIRST_DAY = "2025-01-01";
 
 const CARD = "rounded-2xl bg-white shadow-[0_4px_84px_-40px_#9da7fb66]";
 
@@ -10,7 +14,7 @@ function formatHeight(cm: number) {
 
 // Page Profil : identité à gauche, statistiques à droite
 export default function Profil() {
-  const { user, activity, loading, error } = useUserData("2025-01-01", "2026-12-31");
+  const { user, activity, loading, error } = useUserData(FIRST_DAY, today());
 
   if (loading) return <p className="py-16">Chargement...</p>;
   if (error || !user) return <p className="py-16 text-accent">{error}</p>;

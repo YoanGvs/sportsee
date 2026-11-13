@@ -1,12 +1,16 @@
 import { useUserData } from "../hooks/useUserData";
+import { today } from "../utils/weeks";
 import { ProfileCard } from "../components/ProfileCard";
 import { BpmChart } from "../components/BpmChart";
 import { KmChart } from "../components/KmChart";
 import { WeekSummary } from "../components/WeekSummary";
 
+// Date d'inscription des comptes de test : on charge tout depuis ce jour
+const FIRST_DAY = "2025-01-01";
+
 // Page Dashboard : carte profil, graphiques et résumé de la semaine
 export default function Dashboard() {
-  const { user, activity, loading, error } = useUserData("2025-01-01", "2026-12-31");
+  const { user, activity, loading, error } = useUserData(FIRST_DAY, today());
 
   if (loading) return <p className="py-16">Chargement...</p>;
   if (error || !user) return <p className="py-16 text-accent">{error}</p>;
