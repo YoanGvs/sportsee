@@ -11,7 +11,7 @@ export function PeriodNav({ label, onPrev, onNext, nextDisabled }: Props) {
     "flex h-6 w-6 items-center justify-center rounded-full border border-muted text-xs disabled:opacity-30";
 
   return (
-    <div className="flex items-center gap-2 text-xs">
+    <div className="flex shrink-0 items-center gap-2 whitespace-nowrap text-xs">
       <button type="button" onClick={onPrev} className={button} aria-label="Période précédente">
         ‹
       </button>
