@@ -2,8 +2,9 @@ import { useUserData } from "../hooks/useUserData";
 import { ProfileCard } from "../components/ProfileCard";
 import { BpmChart } from "../components/BpmChart";
 import { KmChart } from "../components/KmChart";
+import { WeekSummary } from "../components/WeekSummary";
 
-// Page Dashboard : carte profil puis graphiques (à venir)
+// Page Dashboard : carte profil, graphiques et résumé de la semaine
 export default function Dashboard() {
   const { user, activity, loading, error } = useUserData("2025-01-01", "2026-12-31");
 
@@ -24,6 +25,7 @@ export default function Dashboard() {
 
       <section>
         <h2 className="text-[22px] font-medium">Cette semaine</h2>
+        {activity.length > 0 && <WeekSummary sessions={activity} />}
       </section>
     </main>
   );
